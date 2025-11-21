@@ -1,3 +1,3 @@
 🖥️ Desenvoldor:
 
-* Fellipe Nogueira Caluête (FR046181)
+* Fellipe Nogueira Caluête 
