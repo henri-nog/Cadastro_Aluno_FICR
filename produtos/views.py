@@ -6,40 +6,36 @@ from .models import Produto
 # Listagem de todos os elementos da classe produtos
 def listar_produto(request):
     produtos = Produto.objects.all()
-    return render(request, 'produtos/listar.html', {'produtos': produtos})
+    return render(request, 'produtos/listar.html', {'produto': produtos})
 
 
 # Cadastrar itens da classe produtos
 def adicionar_produto(request):
     if request.method == 'POST':
         nome = request.POST['nome']
-        quantidade = request.POST['quantidade']
-        preco = request.POST['preco']
-        data_validade = request.POST['data_validade']
-        data_cadastro = request.POST['data_validade']
-        Produto.objects.create(nome=nome, quantidade=quantidade,
-                               preco=preco, data_validade=data_validade,
-                               data_cadastro=data_cadastro)
+        email = request.POST['email']
+        idade = request.POST['idade']
+        curso = request.POST['curso']
+        Produto.objects.create(nome=nome, email=email, idade=idade, curso=curso)
         return redirect('listar_produto')
     return render(request, 'produtos/adicionar.html')
 
 
 # Alterar itens da classe produtos
-def editar_produto(request):
+def editar_produto(request, id):
     produtos = get_object_or_404(Produto, id=id)
     if request.method == 'POST':
         produtos.nome = request.POST['nome']
-        produtos.quantidade = request.POST['quantidade']
-        produtos.preco = request.POST['preco']
-        produtos.data_validade = request.POST['data_validade']
-        produtos.data_cadastro = request.POST['data_validade']
-        Produto.objects.save()
+        produtos.email = request.POST['email']
+        produtos.idade = request.POST['idade']
+        produtos.curso = request.POST['curso']
+        produtos.save()
         return redirect('listar_produto')
-    return render(request, 'produtos/alterar.html')
+    return render(request, 'produtos/editar.html')
 
 
 # Excluir itens da classe produtos
-def exluir_produto():
-    produtos = get_object_or_404(Produto, id)
+def excluir_produto(request, id):
+    produtos = get_object_or_404(Produto, id=id)
     produtos.delete()
     return redirect('listar_produto')
