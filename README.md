@@ -35,6 +35,36 @@ Lógica da Aplicação (CRUD e Relacionamentos):
 
 ___
 
+# Para rodar o projeto 
+
+
+Se tiver o arquivo ‘venv’: 
+
+ ```bash
+.\venv\Scripts\activate 
+```
+Em seguida: 
+
+ ```bash
+python .\manage.py runserver 
+```
+ 
+Se não houver: 
+
+ ```bash
+python -m venv venv 
+```
+
+ ```bash
+.\venv\Scripts\activate 
+```
+
+Em seguida: 
+
+ ```bash
+python .\manage.py runserver 
+```
+
 # Instruções de instalação:
  
  * Biblioteca para manipular imagens.
