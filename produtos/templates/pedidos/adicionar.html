@@ -1,0 +1,18 @@
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Comprador:</label>
+    <input type="text" name="comprador" required><br><br>
+
+    <label>Produto:</label>
+    <select name="produto" required>
+        {% for p in produtos %}
+            <option value="{{ p.id }}">{{ p.nome }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Quantidade:</label>
+    <input type="number" name="quantidade" value="1" min="1"><br><br>
+
+    <button type="submit">Criar Pedido</button>
+</form>
