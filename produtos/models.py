@@ -57,15 +57,13 @@ class Pedido(models.Model):
 
         self.qr_code.save(filename, ContentFile(buffer.getvalue()), save=False)
 
-    def save(self, *args, **kwargs):
-        criando = self.pk is None  
-
-        super().save(*args, **kwargs)  
-       
-       
-        if criando and not self.qr_code:
-            self.gerar_qrcode()
-            super().save(*args, **kwargs)
+def save(self, *args, **kwargs):
+    criando = self.pk is None  
+    super().save(*args, **kwargs)  
+    
+    if criando and not self.qr_code:
+        self.gerar_qrcode()
+        super().save(update_fields=['qr_code'], *args, **kwargs)
 
 
     def __str__(self):
