@@ -1,8 +1,8 @@
 # 🖥️ Desenvoldor:
 
- ```bash
-Fellipe Henrique Nogueira Fernandes Caluête
-```
+
+### Fellipe Henrique Nogueira Fernandes Caluête
+
 ___
 
 # Sobre o projeto
@@ -38,28 +38,33 @@ ___
 # Para rodar o projeto 
 
 
-Se tiver o arquivo ‘venv’: 
+### Se tiver o arquivo ‘venv’: 
 
  ```bash
 .\venv\Scripts\activate 
 ```
-Em seguida: 
+ ```bash
+python .\manage.py migrate
+```
+**Em seguida:** 
 
  ```bash
 python .\manage.py runserver 
 ```
  
-Se não houver: 
+### Se não houver: 
 
  ```bash
 python -m venv venv 
 ```
-
  ```bash
 .\venv\Scripts\activate 
 ```
+ ```bash
+python .\manage.py migrate
+```
 
-Em seguida: 
+**Em seguida:** 
 
  ```bash
 python .\manage.py runserver 
